@@ -2,22 +2,18 @@ package Snack1;
 
 public class Auto {
     
-    private static int numeroTelaio;
-
-    private static int contatoreAuto;
+    private final int numeroTelaio;
 
     private final String modello;
+    
+    private static int contatoreAuto;
 
     public Auto(String modello){
-        numeroTelaio += 2;
-        this.modello = modello; 
-        contatoreAuto++;
+        this.numeroTelaio = contatoreAuto * 2;
+        this.modello = modello;
+        contatoreAuto++; 
     }
 
-    private void setNumeroTelaio(){
-        
-    }
-    
     public int getNumeroTelaio(){
         return numeroTelaio;
     }
@@ -27,11 +23,12 @@ public class Auto {
     }
 
     public static int getNumeroTotaleAuto(){
+        System.out.println("Il garage ha un totale di " + contatoreAuto + " auto");
         return contatoreAuto;
     }
 
     @Override
     public String toString() {
-        return "Auto creata n. " + getNumeroTotaleAuto() + ", modello: " + getModello() + ", numero telaio: " + getNumeroTelaio();
+        return "Nuova auto creata - modello: " + getModello() + ", numero telaio: " + getNumeroTelaio();
     }
 }
